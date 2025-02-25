@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Add relative positioning to body */
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1; /* Ensure login content is above leaves */
+}
+
+.tree-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.login-box {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #4fc3f7;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.options a {
+    color: #4fc3f7;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.login-box button {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-box button:hover {
+    background-color: #45a049;
+}
+
+.tree {
+    width: 750px;
+}
+
+.leaf {
+    position: absolute;
+    width: 25px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+.falling-leaf {
+    position: absolute;
+    top: -50px; /* Ensures leaves start above the screen */
+    width: 25px;
+    opacity: 0;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { 
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;  /* Smooth fade-in */
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;  /* Fade out before disappearing */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+        padding: 20px;
+    }
+
+    .login-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+    }
+
+    .tree-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .tree {
+        width: 60%; /* Shrinks tree image */
+    }
+
+    .login-box {
+        width: 90%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .login-box button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
